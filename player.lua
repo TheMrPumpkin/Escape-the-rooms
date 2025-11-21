@@ -1,31 +1,49 @@
 player = {}
 function player:load()
-    coordinates = { "x", "y" }
-    table.insert(coordinates, "z")
-
-
-    player.x = 100
+    love.graphics.setDefaultFilter("nearest", "nearest")
+    player.x = 400
     player.y = 200
-    player.width = 200
-    player.height = 150
+    player.spritesheet = love.graphics.newImage("assets/sprites/character.png")
+    player.grid = anim8.newGrid(16, 32, player.spritesheet:getWidth(), player.spritesheet:getHeight())
+
+    player.animations = {}
+    player.animations.down = anim8.newAnimation(player.grid('1-4', 1), 0.2)
+    player.animations.right = anim8.newAnimation(player.grid('1-4', 2), 0.2)
+    player.animations.up = anim8.newAnimation(player.grid('1-4', 3), 0.2)
+    player.animations.left = anim8.newAnimation(player.grid('1-4', 4), 0.2)
+    player.animations.idle = anim8.newAnimation(player.grid('1-1', 1), 0.2)
+
+    player.anim = player.animations.idle
 end
 
 function player:update(dt)
+    local isMoving = false
     if love.keyboard.isDown("d") then
         player.x = player.x + 100 * dt
+        player.anim = player.animations.right
+        isMoving = true
     end
     if love.keyboard.isDown("a") then
         player.x = player.x - 100 * dt
+        player.anim = player.animations.left
+        isMoving = true
     end
     if love.keyboard.isDown("s") then
         player.y = player.y + 100 * dt
+        player.anim = player.animations.down
+        isMoving = true
     end
     if love.keyboard.isDown("w") then
         player.y = player.y - 100 * dt
+        player.anim = player.animations.up
+        isMoving = true
     end
+    if isMoving == false then
+        player.anim:gotoFrame(1)
+    end
+    player.anim:update(dt)
 end
 
 function player:draw()
-
-    love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
+    player.anim:draw(player.spritesheet, player.x, player.y, nil, 6)
 end
