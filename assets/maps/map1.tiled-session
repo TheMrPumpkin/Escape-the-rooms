@@ -1,0 +1,48 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "#Map1": {
+            "scaleInDock": 1.5
+        },
+        "Map1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 294,
+                "y": 289.33333333333326
+            }
+        },
+        "Map1.tmx#Map1": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/cohen/Desktop/GAME/Escape-the-rooms/assets/maps",
+    "last.imagePath": "C:/Users/cohen/Desktop/GAME/Escape-the-rooms/assets/sprites",
+    "map.height": 30,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "Map1.tmx"
+    ],
+    "project": "map1.tiled-project",
+    "recentFiles": [
+        "Map1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
