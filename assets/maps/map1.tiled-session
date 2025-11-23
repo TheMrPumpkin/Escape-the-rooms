@@ -16,10 +16,10 @@
         },
         "Map1.tmx": {
             "scale": 1.5,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 294,
-                "y": 289.33333333333326
+                "x": 188,
+                "y": 292
             }
         },
         "Map1.tmx#Map1": {
