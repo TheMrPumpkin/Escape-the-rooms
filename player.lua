@@ -14,6 +14,8 @@ function player:load()
     player.animations.idle = anim8.newAnimation(player.grid('1-1', 1), 0.2)
 
     player.anim = player.animations.idle
+
+    cam = camera()
 end
 
 function player:update(dt)
@@ -42,8 +44,24 @@ function player:update(dt)
         player.anim:gotoFrame(1)
     end
     player.anim:update(dt)
+
+    cam:lookAt(player.x, player.y)
+
+    local w = love.graphics.getWidth()
+    local h = love.graphics.getHeight()
+
+    local mapW = map.width * map.tilewidth
+    local mapH = map.height * map.tileheight
+
+    if cam.x > (mapW - w / 2) then
+        cam.x = (mapW - w / 2)
+    end
+
+    if cam.y > (mapH - h / 2) then
+        cam.y = (mapH - h / 2)
+    end
 end
 
 function player:draw()
-    player.anim:draw(player.spritesheet, player.x, player.y, nil, 4)
+    player.anim:draw(player.spritesheet, player.x, player.y, nil, 4, nil, 8, 11)
 end
