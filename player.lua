@@ -5,6 +5,8 @@ function player:load()
     player.y = 200
     player.spritesheet = love.graphics.newImage("assets/sprites/character.png")
     player.grid = anim8.newGrid(16, 32, player.spritesheet:getWidth(), player.spritesheet:getHeight())
+    player.collider = world:newBSGRectangleCollider(420, 275, 16 * 4, 22 * 4, 10)
+    player.collider:setFixedRotation(true)
 
     player.animations = {}
     player.animations.down = anim8.newAnimation(player.grid('1-4', 1), 0.2)
@@ -20,26 +22,30 @@ end
 
 function player:update(dt)
     local isMoving = false
+    local vx = 0
+    local vy = 0
+
     if love.keyboard.isDown("d") then
-        player.x = player.x + 100 * dt
+        vx = 100
         player.anim = player.animations.right
         isMoving = true
     end
     if love.keyboard.isDown("a") then
-        player.x = player.x - 100 * dt
+        vx = -100
         player.anim = player.animations.left
         isMoving = true
     end
     if love.keyboard.isDown("s") then
-        player.y = player.y + 100 * dt
+        vy = 100
         player.anim = player.animations.down
         isMoving = true
     end
     if love.keyboard.isDown("w") then
-        player.y = player.y - 100 * dt
+        vy = -100
         player.anim = player.animations.up
         isMoving = true
     end
+    player.collider:setLinearVelocity(vx, vy)
     if isMoving == false then
         player.anim:gotoFrame(1)
     end
@@ -64,6 +70,8 @@ function player:update(dt)
     elseif cam.y < 0 then
         cam.y = 0
     end
+    player.x = player.collider:getX()
+    player.y = player.collider:getY()
 end
 
 function player:draw()
