@@ -55,10 +55,14 @@ function player:update(dt)
 
     if cam.x > (mapW - w / 2) then
         cam.x = (mapW - w / 2)
+    elseif cam.x < 0 then
+        cam.x = 0
     end
 
     if cam.y > (mapH - h / 2) then
         cam.y = (mapH - h / 2)
+    elseif cam.y < 0 then
+        cam.y = 0
     end
 end
 
