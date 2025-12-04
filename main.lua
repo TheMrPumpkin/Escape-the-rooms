@@ -12,7 +12,7 @@ function love.load()
     map = STI("assets/maps/Map1.lua", { "box2d" })
     camera = require "assets.libraries.camera"
 
-    world = wf.newWorld(0, 0)
+    world = wf.newWorld()
 
     player:load()
 end

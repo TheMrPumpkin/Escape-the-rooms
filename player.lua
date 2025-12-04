@@ -3,9 +3,11 @@ function player:load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     player.x = 400
     player.y = 200
+    player.offsetY = 15 * 2
     player.spritesheet = love.graphics.newImage("assets/sprites/character.png")
     player.grid = anim8.newGrid(16, 32, player.spritesheet:getWidth(), player.spritesheet:getHeight())
-    player.collider = world:newBSGRectangleCollider(420, 275, 16 * 4, 22 * 4, 10)
+
+    player.collider = world:newBSGRectangleCollider(400, 250 + player.offsetY, 16 * 4, 16 * 4, 14)
     player.collider:setFixedRotation(true)
 
     player.animations = {}
@@ -71,7 +73,7 @@ function player:update(dt)
         cam.y = 0
     end
     player.x = player.collider:getX()
-    player.y = player.collider:getY()
+    player.y = player.collider:getY() - player.offsetY
 end
 
 function player:draw()
