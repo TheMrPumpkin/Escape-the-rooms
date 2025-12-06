@@ -1,7 +1,8 @@
 local STI = require("assets/libraries/sti")
 require("player")
 require("rectangle")
-
+-- flatpak run org.love2d.love2d .
+-- RUN THE GAME
 
 
 function love.load()
