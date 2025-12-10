@@ -16,6 +16,19 @@ function love.load()
     world = wf.newWorld()
 
     player:load()
+
+    walls = {}
+
+    if map.layers["walls"] then
+        for i , obj in pairs(map.layers["walls"].Object) do 
+             local wall = world:newRectangleCollider(obj.x , obj.y , obj.width  ,obj.height )
+            wall:setType('static')
+            table.insert(walls , wall)
+        end
+    end 
+
+
+    
 end
 
 function love.update(dt)
