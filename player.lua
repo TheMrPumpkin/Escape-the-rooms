@@ -55,23 +55,31 @@ function player:update(dt)
 
     cam:lookAt(player.x, player.y)
 
-    local w = love.graphics.getWidth()
+     local w = love.graphics.getWidth()
     local h = love.graphics.getHeight()
+
+    --Top left border
+    if cam.x < w/2 then
+        cam.x = w/2
+    end
+    -- Top border
+    if cam.y < h/2 then
+        cam.y = h/2
+    end
 
     local mapW = map.width * map.tilewidth
     local mapH = map.height * map.tileheight
 
-    if cam.x > (mapW - w / 2) then
-        cam.x = (mapW - w / 2)
-    elseif cam.x < 0 then
-        cam.x = 0
+    -- Right border
+    if cam.x > (mapW - w/2) then
+        cam.x = (mapW - w/2)
     end
 
-    if cam.y > (mapH - h / 2) then
-        cam.y = (mapH - h / 2)
-    elseif cam.y < 0 then
-        cam.y = 0
+    --Bottom border
+    if cam.y > (mapH - h/2) then
+        cam.y = (mapH - h/2)
     end
+
     player.x = player.collider:getX()
     player.y = player.collider:getY() - player.offsetY
 end
