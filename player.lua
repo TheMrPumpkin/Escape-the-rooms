@@ -3,11 +3,11 @@ function player:load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     player.x = 400
     player.y = 200
-    player.offsetY = 15 * 2
+    player.offsetY = 20
     player.spritesheet = love.graphics.newImage("assets/sprites/character.png")
     player.grid = anim8.newGrid(16, 32, player.spritesheet:getWidth(), player.spritesheet:getHeight())
 
-    player.collider = world:newBSGRectangleCollider(400, 250 + player.offsetY, 16 * 4, 16 * 4, 14)
+    player.collider = world:newBSGRectangleCollider(400, 250 + player.offsetY, 16, 16 * 2, 10)
     player.collider:setFixedRotation(true)
 
     player.animations = {}
@@ -55,29 +55,29 @@ function player:update(dt)
 
     cam:lookAt(player.x, player.y)
 
-     local w = love.graphics.getWidth()
+    local w = love.graphics.getWidth()
     local h = love.graphics.getHeight()
 
     --Top left border
-    if cam.x < w/2 then
-        cam.x = w/2
+    if cam.x < w / 2 then
+        cam.x = w / 2
     end
     -- Top border
-    if cam.y < h/2 then
-        cam.y = h/2
+    if cam.y < h / 2 then
+        cam.y = h / 2
     end
 
     local mapW = map.width * map.tilewidth
     local mapH = map.height * map.tileheight
 
     -- Right border
-    if cam.x > (mapW - w/2) then
-        cam.x = (mapW - w/2)
+    if cam.x > (mapW - w / 2) then
+        cam.x = (mapW - w / 2)
     end
 
     --Bottom border
-    if cam.y > (mapH - h/2) then
-        cam.y = (mapH - h/2)
+    if cam.y > (mapH - h / 2) then
+        cam.y = (mapH - h / 2)
     end
 
     player.x = player.collider:getX()
@@ -85,5 +85,5 @@ function player:update(dt)
 end
 
 function player:draw()
-    player.anim:draw(player.spritesheet, player.x, player.y, nil, 4, nil, 8, 11)
+    player.anim:draw(player.spritesheet, player.x, player.y, nil, 2, nil, 8, 11)
 end

@@ -10,25 +10,22 @@ function love.load()
     tick = require "assets.libraries.tick"
     Object = require "assets.libraries.classic"
     anim8 = require "assets.libraries.anim8"
-    map = STI("assets/maps/Map1.lua", { "box2d" })
+    map = STI("assets/maps/map1.lua", { "box2d" })
     camera = require "assets.libraries.camera"
 
     world = wf.newWorld()
 
     player:load()
 
-    walls = {}
+    Walls = {}
 
     if map.layers["walls"] then
-        for i , obj in pairs(map.layers["walls"].Object) do 
-             local wall = world:newRectangleCollider(obj.x , obj.y , obj.width  ,obj.height )
+        for i, obj in pairs(map.layers["walls"].objects) do
+            local wall = world:newRectangleCollider(obj.x, obj.y, obj.width, obj.height)
             wall:setType('static')
-            table.insert(walls , wall)
+            table.insert(Walls, wall)
         end
-    end 
-
-
-    
+    end
 end
 
 function love.update(dt)
@@ -40,6 +37,7 @@ function love.draw()
     cam:attach()
     map:drawLayer(map.layers["Ground"])
     map:drawLayer(map.layers["Trees"])
+    map:drawLayer(map.layers["mountain"])
     player:draw()
     world:draw()
     cam:detach()

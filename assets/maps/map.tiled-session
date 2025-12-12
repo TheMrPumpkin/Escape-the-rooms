@@ -7,7 +7,6 @@
     "expandedProjectPaths": [
         "."
     ],
-    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
             "scaleInDock": 1
@@ -27,16 +26,15 @@
             "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 6024,
-                "y": 4968
+                "x": 832,
+                "y": -1160
             }
         },
         "map.tmx#Overworld": {
             "scaleInDock": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/noamc/OneDrive/מסמכים/GitHub/Escape-the-rooms/assets/maps",
-    "last.imagePath": "C:/Users/noamc/OneDrive/מסמכים/GitHub/Escape-the-rooms/assets/sprites",
+    "last.exportedFilePath": "/var/home/Mrpumpkin/Documents/Escape-the-rooms/assets/maps",
     "map.height": 80,
     "map.lastUsedExportFilter": "Lua files (*.lua)",
     "map.lastUsedFormat": "tmx",
@@ -44,17 +42,11 @@
     "map.tileWidth": 16,
     "map.width": 80,
     "openFiles": [
-        "map.tmx",
-        "C:/Users/noamc/OneDrive/מסמכים/GitHub/Escape-the-rooms-main/assets/maps/map.tmx"
+        "map.tmx"
     ],
     "project": "map.tiled-project",
     "recentFiles": [
-        "C:/Users/noamc/OneDrive/מסמכים/GitHub/Escape-the-rooms-main/assets/maps/map.tmx",
-        "map.tmx"
-    ],
-    "tileset.embedInMap": true,
-    "tileset.tileSize": {
-        "height": 16,
-        "width": 16
-    }
+        "map.tmx",
+        "C:/Users/noamc/OneDrive/מסמכים/GitHub/Escape-the-rooms-main/assets/maps/map.tmx"
+    ]
 }
